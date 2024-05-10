@@ -87,7 +87,7 @@ void div_arrs(int *arr_cp, int *arr, size_t s, size_t e)
 {
 	size_t m;
 
-	if (e -s > 2)
+	if (e -s < 2)
 		return;
 
 	m = s + (e - s) / 2;
