@@ -24,13 +24,15 @@ void shell_sort(int *array, size_t size)
 		while (j < size)
 		{
 			i = j - g;
-			while (i + 1 > 0)
+			while (i < size)
 			{
-				if (array[i + g] >= array[i])
+				if (i + g >= size || array[i + g] >= array[i])
 					break;
 				tmp = array[i];
 				array[i] = array[i + g];
 				array[i + g] = tmp;
+				if (i < g)
+					break;
 				i -= g;
 			}
 			j++;
