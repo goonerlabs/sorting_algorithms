@@ -8,7 +8,8 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	int k, *arr1, *arr2; i;
+	int k, *arr1, *arr2;
+	size_t i;
 
 	if (!array || size < 2)
 		return;
@@ -22,14 +23,15 @@ void counting_sort(int *array, size_t size)
 	if (!arr1)
 		return;
 
-	for (i = 0; i <= k; i++)
+	for (i = 0; i <= (size_t)k; i++)
 		arr1[i] = 0;
 
 	for (i = 0; i < size; i++)
 		arr1[array[i]]++;
 
-	for (i = 1; i <= k; i++)
+	for (i = 1; i <= (size_t)k; i++)
 		arr1[i] = arr1[i] + arr1[i - 1];
+	print_array(arr1, k + 1);
 
 	arr2 = malloc(sizeof(int) * size);
 	if (!arr2)
@@ -38,7 +40,7 @@ void counting_sort(int *array, size_t size)
 		return;
 	}
 
-	for (i = size - 1; i >= 0; i--)
+	for (i = size - 1; i != (size_t)-1; i--)
 		arr2[--arr1[array[i]]] = array[i];
 
 	for (i = 0; i < size; i++)
@@ -46,7 +48,6 @@ void counting_sort(int *array, size_t size)
 
 	free(arr1);
 	free(arr2);
-	print_array(array, size);
 }
 
 
