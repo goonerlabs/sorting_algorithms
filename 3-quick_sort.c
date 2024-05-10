@@ -1,7 +1,7 @@
 #include "sort.h"
 
 void swap(int *x, int *y);
-int part(int *arr, int l, int r);
+int part(int *arr, int l, int r, size_t size);
 void sort(int *arr, int l, int r, size_t size);
 
 /**
@@ -39,10 +39,11 @@ void swap(int *x, int *y)
  * @arr: The array to be partitioned
  * @l: Left index
  * @r: Right index
+ * @size: Size of the array
  *
  * Return: The index of the pivot
  */
-int part(int *arr, int l, int r)
+int part(int *arr, int l, int r, size_t size)
 {
 	int p, i, j;
 
@@ -55,10 +56,12 @@ int part(int *arr, int l, int r)
 		{
 			i++;
 			swap(&arr[i], &arr[j]);
+			print_array(arr, size);
 		}
 		j++;
 	}
 	swap(&arr[i + 1], &arr[r]);
+	print_array(arr, size);
 	return (i + 1);
 }
 
@@ -76,8 +79,7 @@ void sort(int *arr, int l, int r, size_t size)
 
 	if (l < r)
 	{
-		p = part(arr, l, r);
-		print_array(arr, size);
+		p = part(arr, l, r, size);
 		sort(arr, l, p - 1, size);
 		sort(arr, p + 1, r, size);
 	}
