@@ -61,7 +61,8 @@ int part(int *arr, int l, int r, size_t size)
 		j++;
 	}
 	swap(&arr[i + 1], &arr[r]);
-	print_array(arr, size);
+	if (i + 1 != r)
+		print_array(arr, size);
 	return (i + 1);
 }
 
