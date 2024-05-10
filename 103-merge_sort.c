@@ -34,7 +34,7 @@ void merge_sort(int *array, size_t size)
 
 /**
  * merge_arrs - merges two arrays
- * 
+ *
  * @arr: The array to be sorted
  * @arr_cp: copy of the array
  * @l: left index
@@ -76,7 +76,7 @@ void merge_arrs(int *arr, int *arr_cp, size_t l, size_t m, size_t r)
 
 /**
  * div_arrs - divides an array into smaller arrays
- * 
+ *
  * @arr_cp: copy of the array
  * @arr: The array to be sorted
  * @s: start index
@@ -87,7 +87,7 @@ void div_arrs(int *arr_cp, int *arr, size_t s, size_t e)
 {
 	size_t m;
 
-	if (e -s < 2)
+	if (e - s < 2)
 		return;
 
 	m = s + (e - s) / 2;
@@ -95,26 +95,3 @@ void div_arrs(int *arr_cp, int *arr, size_t s, size_t e)
 	div_arrs(arr, arr_cp, m, e);
 	merge_arrs(arr, arr_cp, s, m, e);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
